@@ -1,23 +1,40 @@
-// toglogchiiin eeljiig hadgalah huwisagch 1r toglogch 0 2r toglogch 1
-var activePlayer = 0;
-// toglogchiin tsugluulsan onoog hadgalah
-var scores = [0, 0];
-//eeljiin onoo
-var roundScore = 0;
-//shoo ali talaara buusniig hadgalah 1-6 gsn utgiig sanamsarguigeer uusgej ugnu
-
-//<div class="player-score" id="score-0">43</div>
-
-//document.querySelector("#score-1").innerHTML = dice;
-
-//program ehellee
-document.getElementById("score-0").textContent = "0";
-document.getElementById("score-1").textContent = "0";
-document.getElementById("current-0").textContent = "0";
-document.getElementById("current-1").textContent = "0";
-
+//shoonii zurgiig uzuuleh element Domos olood hadgallaa
+var activePlayer, scores, roundScore;
 var diceDom = document.querySelector(".dice");
-diceDom.style.display = "none";
+//togloom shineer ehellee
+function initGame() {
+  // toglogchiiin eeljiig hadgalah huwisagch 1r toglogch 0 2r toglogch 1
+  activePlayer = 0;
+  // toglogchiin tsugluulsan onoog hadgalah
+  scores = [0, 0];
+  //eeljiin onoo
+  roundScore = 0;
+  //shoo ali talaara buusniig hadgalah 1-6 gsn utgiig sanamsarguigeer uusgej ugnu
+
+  //<div class="player-score" id="score-0">43</div>
+
+  //document.querySelector("#score-1").innerHTML = dice;
+
+  //program ehellee
+  document.getElementById("score-0").textContent = "0";
+  document.getElementById("score-1").textContent = "0";
+  document.getElementById("current-0").textContent = "0";
+  document.getElementById("current-1").textContent = "0";
+
+  diceDom.style.display = "none";
+
+  document.getElementById("name-0").textContent = "Player 1";
+  document.getElementById("name-1").textContent = "Player 2";
+
+  document.querySelector(".player-0-panel").classList.remove("winner");
+  document.querySelector(".player-1-panel").classList.remove("winner");
+
+  document.querySelector(".player-0-panel").classList.remove("active");
+  document.querySelector(".player-1-panel").classList.remove("active");
+
+  document.querySelector(".player-0-panel").classList.add("active");
+}
+initGame();
 //shoo shideh eventListner
 document.querySelector(".btn-roll").addEventListener("click", function () {
   //1-6 sanamsargu too
@@ -81,6 +98,4 @@ function nextPlayer() {
   diceDom.style.display = "none";
 }
 //new game eventHandler
-document.querySelector('.btn-new').addEventListener('click',function({
-    
-}))
+document.querySelector(".btn-new").addEventListener("click", initGame);
